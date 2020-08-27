@@ -100,20 +100,27 @@ public class AddArticle extends AppCompatActivity {
         final String randomkey=UUID.randomUUID().toString();
         final ProgressDialog pd=new ProgressDialog(this);
         pd.setTitle("Uploading....");
-        StorageReference riversRef = storagereference.child("images/"+randomkey);
+        final StorageReference riversRef = storagereference.child("images/"+randomkey);
         riversRef.putFile(imageuri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        String Content=content.getText().toString();
-                        String Heading=heading.getText().toString();
-                        ArticlesInfo articleInfo = new ArticlesInfo(username,Heading,Content,taskSnapshot.getUploadSessionUri().toString());
-                        String id=reference.push().getKey();
-                        reference.child("ARTICLES").child(id).setValue(articleInfo);
-                        pd.dismiss();
-                        Toast.makeText(getApplicationContext(),"Successfully Uploaded...",Toast.LENGTH_SHORT).show();
-                        Intent i=new Intent(AddArticle.this,MainActivity.class);
-                        startActivity(i);
+                    public void onSuccess(final UploadTask.TaskSnapshot taskSnapshot) {
+                        riversRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                String url = uri.toString();
+                                String Content=content.getText().toString();
+                                String Heading=heading.getText().toString();
+                                ArticlesInfo articleInfo = new ArticlesInfo(username,Heading,Content,url);
+                                String id=reference.push().getKey();
+                                reference.child("ARTICLES").child(id).setValue(articleInfo);
+                                pd.dismiss();
+                                Toast.makeText(getApplicationContext(),"Successfully Uploaded...",Toast.LENGTH_SHORT).show();
+                                Intent i=new Intent(AddArticle.this,MainActivity.class);
+                                startActivity(i);
+                            }
+                        });
+
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
