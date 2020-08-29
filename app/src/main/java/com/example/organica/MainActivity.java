@@ -2,13 +2,36 @@ package com.example.organica;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Button buyer = findViewById(R.id.buyer);
+        Button seller = findViewById(R.id.seller);
+
+        buyer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, LoginActivityBuyer.class);
+                startActivity(intent);
+            }
+        });
+
+        seller.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, LoginActivitySeller.class);
+                startActivity(intent);
+            }
+        });
     }
 }
