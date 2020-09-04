@@ -14,7 +14,6 @@
         <activity android:name=".Seller_see" />
         <activity android:name=".Seller_post" />
         <activity android:name=".ShowArticles" />
-        <activity android:name=".ShowArticles"></activity>
         <activity android:name=".AddArticle" />
         <activity android:name=".MainActivity">
             <intent-filter>

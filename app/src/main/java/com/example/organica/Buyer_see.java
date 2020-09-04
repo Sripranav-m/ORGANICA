@@ -49,9 +49,6 @@ public class Buyer_see extends AppCompatActivity {
         setContentView(R.layout.activity_buyer_see);
         Intent i=getIntent();
         item_category=i.getStringExtra("item_category");
-        System.out.println("==================================");
-        System.out.println(item_category);
-        System.out.println("==================================");
         recyclerview=(RecyclerView) findViewById(R.id.buyer_see_recyclerview);
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
         recyclerview.setLayoutManager(layoutManager);
