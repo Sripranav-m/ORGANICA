@@ -34,9 +34,14 @@ public class AddArticle extends AppCompatActivity {
     public EditText heading;
     public EditText content;
 
-    public ImageView uploadedimage;
 
-    public Uri imageuri;
+    private ImageView uploadedimage;
+
+    private Uri imageuri;
+
+
+
+
 
     private FirebaseStorage storage;
 

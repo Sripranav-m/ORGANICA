@@ -16,6 +16,36 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void seller_add_item(View view){
+        Intent i=new Intent(MainActivity.this,Seller_post.class);
+        startActivity(i);
+    }
+
+    public void seller_see_his_item(View view){
+        Intent i=new Intent(MainActivity.this,Seller_see.class);
+        startActivity(i);
+    }
+
+    public void buyer_vegetables(View view){
+        Intent i=new Intent(MainActivity.this,Buyer_see.class);
+        i.putExtra("item_category","VEGETABLES");
+        startActivity(i);
+    }
+    public void buyer_fruits(View view){
+        Intent i=new Intent(MainActivity.this,Buyer_see.class);
+        i.putExtra("item_category","FRUITS");
+        startActivity(i);
+    }
+    public void buyer_beverages(View view){
+        Intent i=new Intent(MainActivity.this,Buyer_see.class);
+        i.putExtra("item_category","BEVERAGES");
+        startActivity(i);
+    }
+    public void buyer_snacks(View view){
+        Intent i=new Intent(MainActivity.this,Buyer_see.class);
+        i.putExtra("item_category","SNACKS");
+        startActivity(i);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

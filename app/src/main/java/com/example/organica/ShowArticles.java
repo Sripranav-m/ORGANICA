@@ -32,7 +32,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 public class ShowArticles extends AppCompatActivity {
-    RecyclerView recyclerview;
+
+    public RecyclerView recyclerview;
+
+
+
     private DatabaseReference myref;
     private ArrayList<ArticlesInfo> Articlesinfolist;
     private RecyclerAdapter recyclerAdapter;

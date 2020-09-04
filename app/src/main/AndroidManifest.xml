@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".BuyerItemRecyclerAdapter"></activity>
+        <activity android:name=".Buyer_see" />
+        <activity android:name=".Seller_see" />
+        <activity android:name=".Seller_post" />
+        <activity android:name=".ShowArticles" />
         <activity android:name=".ShowArticles"></activity>
         <activity android:name=".AddArticle" />
         <activity android:name=".MainActivity">
