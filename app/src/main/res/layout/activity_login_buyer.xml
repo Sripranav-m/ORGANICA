@@ -4,57 +4,145 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".LoginActivityBuyer">
-
-    <EditText
-        android:id="@+id/login_buyer_email"
-        android:layout_width="wrap_content"
+    tools:context=".LoginActivityBuyer"
+    android:background="@drawable/welcomebg"
+    android:orientation="horizontal">
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="99dp"
-        android:layout_marginTop="113dp"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress" />
+        >
 
-    <EditText
-        android:id="@+id/login_buyer_pass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/login_buyer_email"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="46dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword" />
+        <ImageButton
+            android:id="@+id/login_back"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ic_left_ar"
+            android:layout_alignParentLeft="true"
 
-    <Button
-        android:id="@+id/buyer_log_in"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/login_buyer_pass"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="49dp"
-        android:text="Log in" />
+            />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/buyer_log_in"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="63dp"
-        android:text="Don't have account sign up" />
+        android:layout_marginTop="232dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:fontFamily="@font/bold"
+            android:textSize="40sp"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/buyer_sign_up"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp"
-        android:text="Sign up" />
+            <EditText
+                android:id="@+id/login_buyer_email"
+                android:layout_width="331dp"
+                android:layout_height="52dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/login_shape"
+                android:fontFamily="@font/regular"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="30dp"
+                android:textColorHint="#DAC0C0" />
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp">
+
+            <EditText
+                android:id="@+id/login_buyer_pass"
+                android:layout_width="331dp"
+                android:layout_height="52dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/login_shape"
+                android:fontFamily="@font/regular"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:paddingLeft="30dp"
+                android:textColorHint="#DAC0C0" />
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            >
+            <Button
+                android:id="@+id/buyer_log_in"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Login"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medium"
+                android:background="@drawable/login_shape"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Forgot Password?"
+                android:fontFamily="@font/regular"
+                android:textSize="16sp"
+                android:textColor="#6A6969"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Not a Member?"
+                android:fontFamily="@font/regular"
+                android:textSize="20sp"
+                android:textColor="#A8DD84"
+                android:layout_centerInParent="true"/>
+
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
+            <Button
+                android:layout_width="200dp"
+                android:id="@+id/buyer_sign_up"
+                android:layout_height="wrap_content"
+                android:text="Register Now !"
+                android:fontFamily="@font/bold"
+                android:textSize="20sp"
+                android:background="@drawable/login_shape"
+                android:layout_centerInParent="true"
+                android:textColor="#FDF5F2"/>
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
 </RelativeLayout>

@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,6 +27,7 @@ public class RegisterActivitySeller extends AppCompatActivity {
 
     EditText name, email, pass, phone, address;
     Button register;
+    ImageButton back;
     FirebaseAuth auth;
     DatabaseReference reference;
     ProgressDialog pd;
@@ -42,8 +44,17 @@ public class RegisterActivitySeller extends AppCompatActivity {
         phone = findViewById(R.id.register_seller_phone);
         address = findViewById(R.id.register_seller_address);
         register = findViewById(R.id.register_seller_button);
+        back = findViewById(R.id.back_register);
 
         auth = FirebaseAuth.getInstance();
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RegisterActivitySeller.this, LoginActivitySeller.class);
+                startActivity(intent);
+            }
+        });
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,8 +71,10 @@ public class RegisterActivitySeller extends AppCompatActivity {
 
                 if(TextUtils.isEmpty(str_name) || TextUtils.isEmpty(str_email)|| TextUtils.isEmpty(str_pass) || TextUtils.isEmpty(str_phone) || TextUtils.isEmpty(str_address)){
                     Toast.makeText(RegisterActivitySeller.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+                    pd.dismiss();
                 }else if(str_pass.length() < 6){
                     Toast.makeText(RegisterActivitySeller.this, "Password must have atleast 6 characters", Toast.LENGTH_SHORT).show();
+                    pd.dismiss();
                 }else {
                     register(str_name, str_email, str_pass, str_phone, str_address);
                 }
@@ -85,6 +98,7 @@ public class RegisterActivitySeller extends AppCompatActivity {
                             hashMap.put("Email", email);
                             hashMap.put("Phone", phone);
                             hashMap.put("Address", address);
+                            hashMap.put("accountType", "seller");
                             hashMap.put("imageurl", "https://firebasestorage.googleapis.com/v0/b/organic-app-31188.appspot.com/o/images%2Favatar.jpg?alt=media&token=ef753982-bea8-4e8a-af01-ab497ec6a65f");
 
                             reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -92,7 +106,7 @@ public class RegisterActivitySeller extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful()){
                                         pd.dismiss();
-                                        Intent intent = new Intent(RegisterActivitySeller.this, TargetActivity.class);
+                                        Intent intent = new Intent(RegisterActivitySeller.this, Home.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                         startActivity(intent);
                                     }
@@ -100,7 +114,7 @@ public class RegisterActivitySeller extends AppCompatActivity {
                             });
                         }else{
                             pd.dismiss();
-                            Toast.makeText(RegisterActivitySeller.this, "You can't use this email or password", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivitySeller.this, "Email is already registered", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

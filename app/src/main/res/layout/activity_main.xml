@@ -4,38 +4,93 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/first_text"
-        android:layout_width="wrap_content"
+    tools:context=".MainActivity"
+    android:background="@drawable/welcomebg">
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="118dp"
-        android:fontFamily="sans-serif-black"
-        android:text="TextView"
-        android:textSize="18sp"
-        tools:text="Are you buyer or seller" />
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WELCOME"
+                android:textColor="#E4E367"
+                android:fontFamily="@font/bold"
+                android:textSize="70sp"
+                android:layout_centerInParent="true"/>
 
-    <Button
-        android:id="@+id/buyer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/first_text"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="187dp"
-        android:text="Buyer" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Have a good day!"
+                android:fontFamily="@font/regular"
+                android:layout_centerInParent="true"
+                android:textColor="#708DBF"
 
-    <Button
-        android:id="@+id/seller"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/buyer"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="325dp"
-        android:text="seller" />
+                android:textSize="30dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <Button
+                android:id="@+id/buyer"
+                android:layout_width="120dp"
+                android:layout_height="45dp"
+                android:text="BUYER"
+                android:background="@drawable/login_shape"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+
+                android:gravity="center"
+                android:fontFamily="@font/medium"
+                android:layout_marginTop="20dp"
+                android:layout_centerInParent="true"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <Button
+                android:id="@+id/seller"
+                android:layout_width="120dp"
+                android:layout_height="45dp"
+                android:text="SELLER"
+                android:background="@drawable/login_shape"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+
+                android:gravity="center"
+                android:fontFamily="@font/medium"
+                android:layout_marginTop="20dp"
+                android:layout_centerInParent="true"/>
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+
+
+
+
 
 </RelativeLayout>
+
+
+

@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ public class LoginActivityBuyer extends AppCompatActivity {
 
     EditText email, password;
     Button login, signup;
+    ImageButton back;
     FirebaseAuth auth;
 
     @Override
@@ -39,8 +41,18 @@ public class LoginActivityBuyer extends AppCompatActivity {
         password = findViewById(R.id.login_buyer_pass);
         login = findViewById(R.id.buyer_log_in);
         signup = findViewById(R.id.buyer_sign_up);
+        back =  findViewById(R.id.login_back);
 
         auth = FirebaseAuth.getInstance();
+
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivityBuyer.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +73,7 @@ public class LoginActivityBuyer extends AppCompatActivity {
                 String str_pass = password.getText().toString();
 
                 if(TextUtils.isEmpty(str_email) || TextUtils.isEmpty(str_pass)){
+                    pd.dismiss();
                     Toast.makeText(LoginActivityBuyer.this, "All fields are required", Toast.LENGTH_SHORT).show();
                 }else{
                     auth.signInWithEmailAndPassword(str_email, str_pass)
@@ -68,24 +81,36 @@ public class LoginActivityBuyer extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if(task.isSuccessful()){
-                                        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Buyers")
-                                                .child(auth.getCurrentUser().getUid());
+                                        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Buyers");
+                                        ref.orderByChild("id").equalTo(auth.getCurrentUser().getUid())
+                                                .addListenerForSingleValueEvent(new ValueEventListener() {
+                                                    @Override
+                                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                        int chk = 0;
+                                                        for(DataSnapshot ds: snapshot.getChildren()){
+                                                            String accountType = ""+ds.child("accountType").getValue();
+                                                            if(accountType.equals("buyer")){
+                                                                chk = 1;
+                                                                pd.dismiss();
+                                                                Intent intent = new Intent(LoginActivityBuyer.this, Home.class);
+                                                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                                startActivity(intent);
+                                                            }else{
+                                                                break;
+                                                            }
+                                                        }
+                                                        if(chk==0) {
+                                                            pd.dismiss();
+                                                            auth.signOut();
+                                                            Toast.makeText(LoginActivityBuyer.this, "Authentication failed!!", Toast.LENGTH_SHORT).show();
+                                                        }
+                                                    }
 
-                                        reference.addValueEventListener(new ValueEventListener() {
-                                            @Override
-                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                pd.dismiss();
-                                                Intent intent = new Intent(LoginActivityBuyer.this, TargetActivity.class);
-                                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                                startActivity(intent);
-                                            }
-
-                                            @Override
-                                            public void onCancelled(@NonNull DatabaseError error) {
-                                                pd.dismiss();
-
-                                            }
-                                        });
+                                                    @Override
+                                                    public void onCancelled(@NonNull DatabaseError error) {
+                                                        pd.dismiss();
+                                                    }
+                                                });
                                     }else{
                                         pd.dismiss();
                                         Toast.makeText(LoginActivityBuyer.this, "Authentication failed!!", Toast.LENGTH_SHORT).show();
