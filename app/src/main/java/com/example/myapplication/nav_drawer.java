@@ -8,8 +8,10 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.myapplication.R;
 import com.google.android.material.navigation.NavigationView;
@@ -51,6 +53,28 @@ public class nav_drawer extends AppCompatActivity implements NavigationView.OnNa
             case R.id.nav_cart:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new cartfragment()).commit();
                 break;
+            case R.id.draw_share:
+                try {
+                    Intent shareIntent = new Intent();
+                    shareIntent.setAction(Intent.ACTION_SEND);
+                    shareIntent.putExtra(Intent.EXTRA_SUBJECT,"GO-ORGANIC");
+                    shareIntent.putExtra(Intent.EXTRA_TEXT,"https://play.google.com/store/apps?detals?id="+getApplicationContext().getPackageName());
+                    shareIntent.setType("text/plain");
+                    startActivity(Intent.createChooser(shareIntent,"Share Using"));;
+                } catch (Exception e) {
+                    Toast.makeText(this,"Unable to share\n"+e.getMessage(),Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.draw_rate:
+                Uri uri = Uri.parse("https://play.google.com/store/apps?detals?id="+getApplicationContext().getPackageName());
+                Intent rateIntent = new Intent(Intent.ACTION_VIEW,uri);
+                try {
+                    startActivity(rateIntent);
+                } catch (Exception e) {
+                    Toast.makeText(this,"Unable to open now\n"+e.getMessage(),Toast.LENGTH_SHORT).show();
+                }
+                break;
+
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
