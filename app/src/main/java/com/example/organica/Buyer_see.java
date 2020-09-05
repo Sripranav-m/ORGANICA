@@ -69,10 +69,10 @@ public class Buyer_see extends AppCompatActivity {
                     ItemInfo iteminfo=new ItemInfo("","","","","","");
                     iteminfo.setitem_image_url(snapshott.child("item_image_url").getValue().toString());
                     iteminfo.setseller_username(snapshott.child("seller_username").getValue().toString());
-                    iteminfo.setitem_rate("Item Rate Per Unit: "+snapshott.child("item_rate").getValue().toString());
+                    iteminfo.setitem_rate(snapshott.child("item_rate").getValue().toString());
                     iteminfo.setitem_name(snapshott.child("item_name").getValue().toString());
                     iteminfo.setitem_category(snapshott.child("item_category").getValue().toString());
-                    iteminfo.setavailable_units("Available Units: "+snapshott.child("available_units").getValue().toString());
+                    iteminfo.setavailable_units(snapshott.child("available_units").getValue().toString());
                     Iteminfolist.add(iteminfo);
                 }
                 buyeritemrecyclerAdapter=new BuyerItemRecyclerAdapter(getApplicationContext(),Iteminfolist);

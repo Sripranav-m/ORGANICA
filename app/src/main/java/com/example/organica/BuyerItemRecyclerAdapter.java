@@ -38,6 +38,7 @@ public class BuyerItemRecyclerAdapter extends RecyclerView.Adapter<BuyerItemRecy
         holder.item_rate.setText(iteminfolist.get(position).getitem_rate());
         holder.available_units.setText(iteminfolist.get(position).getavailable_units());
         holder.seller_username.setText(iteminfolist.get(position).getseller_username());
+        holder.item_category.setText(iteminfolist.get(position).getitem_category());
         Glide.with(context)
                 .load(iteminfolist.get(position).getitem_image_url())
                 .into(holder.item_image);
@@ -54,12 +55,13 @@ public class BuyerItemRecyclerAdapter extends RecyclerView.Adapter<BuyerItemRecy
         TextView item_rate;
         TextView available_units;
         TextView seller_username;
-
+        TextView item_category;
         public ViewHolder(@NonNull View itemview){
             super( itemview);
             item_image=itemview.findViewById(R.id.item_image);
             item_name=itemview.findViewById(R.id.item_name);
             item_rate=itemview.findViewById(R.id.item_rate);
+            item_category=itemview.findViewById(R.id.item_category);
             available_units=itemview.findViewById(R.id.available_units);
             seller_username=itemview.findViewById(R.id.seller_username);
 
