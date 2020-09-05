@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            startActivity(new Intent(MainActivity.this,bottom_navigation.class));
+                            startActivity(new Intent(MainActivity.this,nav_drawer.class));
                             finish();
                         } else {
                             Toast.makeText(MainActivity.this,"Incorrect OTP",Toast.LENGTH_SHORT).show();
@@ -105,11 +105,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
-                Toast.makeText(MainActivity.this,"verification completed",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,"Code received",Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onVerificationFailed(FirebaseException e) {
-                Toast.makeText(MainActivity.this,"verification fialed",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,"verification failed",Toast.LENGTH_SHORT).show();
             }
 
             @Override
