@@ -1,28 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn= "navigation_view">
+
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id = "@+id/nav_home"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title = "Home"/>
+        <item
+            android:id = "@+id/nav_article"
+            android:icon="@drawable/ic_baseline_forum_24"
+            android:title = "Articles"/>
+        <item
+            android:id = "@+id/nav_cart"
+            android:icon="@drawable/ic_baseline_shopping_cart_24"
+            android:title = "Cart"/>
+
+    </group>
+
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/draw_shop"
-            android:title="Shop"
+            android:title="My Orders"
             android:icon="@drawable/ic_baseline_shopping_basket_24"/>
-        <item
-            android:id="@+id/draw_help"
-            android:title="Need Help?"
-            android:icon="@drawable/ic_baseline_help_24"/>
 
     </group>
 
     <item android:title="Communicate">
         <menu>
             <group android:checkableBehavior="single">
-            <item
-                android:id = "@+id/draw_share"
-                android:title="Share"
-                android:icon="@drawable/ic_baseline_share_24"/>
-            <item
-                android:id="@+id/draw_rate"
-                android:title = "Rate Us"
-                android:icon="@drawable/ic_baseline_rate_review_24"/>
+                <item
+                    android:id = "@+id/draw_share"
+                    android:title="Share"
+                    android:icon="@drawable/ic_baseline_share_24"/>
+                <item
+                    android:id="@+id/draw_rate"
+                    android:title = "Rate Us"
+                    android:icon="@drawable/ic_baseline_rate_review_24"/>
+                <item
+                    android:id="@+id/draw_help"
+                    android:title="Need Help?"
+                    android:icon="@drawable/ic_baseline_help_24"/>
             </group>
         </menu>
     </item>
