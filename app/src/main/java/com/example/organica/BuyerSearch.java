@@ -1,5 +1,4 @@
 package com.example.organica;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -28,6 +27,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,12 +47,38 @@ public class BuyerSearch extends AppCompatActivity {
     private Context context;
     public String username;
     private FirebaseAuth auth;
+    private onClickInterface onclickInterface;
+    private StorageReference storagereference;
+    public DatabaseReference reference;
+    private FirebaseStorage storage;
+    public DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buyer_see);
         Intent i=getIntent();
+        onclickInterface = new onClickInterface() {
+            @Override
+            public void setClick(int abc) {
+                auth = FirebaseAuth.getInstance();
+                FirebaseUser user = auth.getCurrentUser();
+                username=user.getEmail();
+                RecyclerView.ViewHolder item=recyclerview.findViewHolderForAdapterPosition(abc);
+                System.out.println(Iteminfolist.get(abc).item_image_url);
+                String imageurl=Iteminfolist.get(abc).item_image_url;
+                String itemname=Iteminfolist.get(abc).item_name;
+                String itemrate=Iteminfolist.get(abc).item_rate;
+                String itemcategory=Iteminfolist.get(abc).item_category;
+                Buyer_Order bo=new Buyer_Order(username,itemname,itemrate,itemcategory,imageurl);
+                reference = FirebaseDatabase.getInstance().getReference();
+                String id=reference.push().getKey();
+                reference.child("BUYER_ORDERS").child(user.getUid()).child(id).setValue(bo);
+                Toast.makeText(Buyer_see.this,"Successfully Placed Your Order",Toast.LENGTH_LONG).show();
+                buyeritemrecyclerAdapter.notifyDataSetChanged();
+                System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+            }
+        };
         search_string=i.getStringExtra("search_string");
         System.out.println(search_string);
         recyclerview=(RecyclerView) findViewById(R.id.buyer_see_recyclerview);
@@ -60,9 +87,8 @@ public class BuyerSearch extends AppCompatActivity {
         recyclerview.setHasFixedSize(true);
         myref=FirebaseDatabase.getInstance().getReference();
         Iteminfolist=new ArrayList<>();
-//        FirebaseUser user = auth.getCurrentUser();
-//        username=user.getUid();/////////////////////////////////////as of now//////////////////////
-        username="SRIPRANAV";
+        FirebaseUser user = auth.getCurrentUser();
+        username=user.getUid();/////////////////////////////////////as of now//////////////////////
         clearall();
         search_string=search_string.toLowerCase();
         GetDataFromFirebase(search_string,"VEGETABLES");
@@ -89,7 +115,7 @@ public class BuyerSearch extends AppCompatActivity {
                         Iteminfolist.add(iteminfo);
                     }
                 }
-                buyeritemrecyclerAdapter=new BuyerItemRecyclerAdapter(getApplicationContext(),Iteminfolist);
+                buyeritemrecyclerAdapter=new BuyerItemRecyclerAdapter(getApplicationContext(),Iteminfolist,onclickInterface);
                 recyclerview.setAdapter(buyeritemrecyclerAdapter);
                 buyeritemrecyclerAdapter.notifyDataSetChanged();
             }

@@ -160,21 +160,6 @@
         </LinearLayout>
 
 
-
-        <Button
-            android:id="@+id/add_to_cart_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="ADD TO CART" />
-
-        <Button
-            android:id="@+id/byt_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="BUY" />
-
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
