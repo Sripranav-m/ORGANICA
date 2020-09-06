@@ -15,22 +15,22 @@ import java.util.ArrayList;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class BuyerItemRecyclerAdapter extends RecyclerView.Adapter<BuyerItemRecyclerAdapter.ViewHolder> {
+public class BuyerCartRecyclerAdapter extends RecyclerView.Adapter<BuyerCartRecyclerAdapter.ViewHolder> {
     private static final String Tag="RecyclerView";
     private  Context context;
-    private ArrayList<ItemInfo> iteminfolist;
+    private ArrayList<Buyer_Order> iteminfolist;
     onClickInterface onClickInterface;
 
-    public BuyerItemRecyclerAdapter(Context c,ArrayList<ItemInfo> a,onClickInterface onClickInterface){
+    public BuyerCartRecyclerAdapter(Context c,ArrayList<Buyer_Order> a,onClickInterface onClickInterface){
         this.context=c;
         this.iteminfolist=a;
         this.onClickInterface = onClickInterface;
     }
     @NonNull
     @Override
-    public BuyerItemRecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public BuyerCartRecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_buyer_card,parent,false);
+                .inflate(R.layout.buyer_cart_item,parent,false);
         return new ViewHolder(view);
     }
 
@@ -38,8 +38,6 @@ public class BuyerItemRecyclerAdapter extends RecyclerView.Adapter<BuyerItemRecy
     public void onBindViewHolder(@NonNull ViewHolder holder,final int position) {
         holder.item_name.setText(iteminfolist.get(position).getitem_name());
         holder.item_rate.setText(iteminfolist.get(position).getitem_rate());
-        holder.available_units.setText(iteminfolist.get(position).getavailable_units());
-        holder.seller_username.setText(iteminfolist.get(position).getseller_username());
         holder.item_category.setText(iteminfolist.get(position).getitem_category());
         Glide.with(context)
                 .load(iteminfolist.get(position).getitem_image_url())
@@ -51,13 +49,12 @@ public class BuyerItemRecyclerAdapter extends RecyclerView.Adapter<BuyerItemRecy
                 onClickInterface.setClick(position);
             }
         });
-        holder.add_button.setOnClickListener(new View.OnClickListener() {
+        holder.del_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onClickInterface.setClickadd(position);
             }
         });
-
     }
 
     @Override
@@ -69,21 +66,17 @@ public class BuyerItemRecyclerAdapter extends RecyclerView.Adapter<BuyerItemRecy
         TextView item_name;
         ImageView item_image;
         TextView item_rate;
-        TextView available_units;
-        TextView seller_username;
         TextView item_category;
         Button buy_button;
-        Button add_button;
+        Button del_button;
         public ViewHolder(@NonNull View itemview){
             super( itemview);
             item_image=itemview.findViewById(R.id.item_image);
             item_name=itemview.findViewById(R.id.item_name);
             item_rate=itemview.findViewById(R.id.item_rate);
             item_category=itemview.findViewById(R.id.item_category);
-            available_units=itemview.findViewById(R.id.available_units);
-            seller_username=itemview.findViewById(R.id.seller_username);
             buy_button=itemview.findViewById(R.id.buy_button);
-            add_button=itemview.findViewById(R.id.add_button);
+            del_button=itemview.findViewById(R.id.del_button);
         }
     }
 }

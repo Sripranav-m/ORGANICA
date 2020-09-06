@@ -70,13 +70,30 @@ public class BuyerSearch extends AppCompatActivity {
                 String itemname=Iteminfolist.get(abc).item_name;
                 String itemrate=Iteminfolist.get(abc).item_rate;
                 String itemcategory=Iteminfolist.get(abc).item_category;
-                Buyer_Order bo=new Buyer_Order(username,itemname,itemrate,itemcategory,imageurl);
                 reference = FirebaseDatabase.getInstance().getReference();
                 String id=reference.push().getKey();
+                Buyer_Order bo=new Buyer_Order(username,itemname,itemrate,itemcategory,imageurl,id);
                 reference.child("BUYER_ORDERS").child(user.getUid()).child(id).setValue(bo);
-                Toast.makeText(Buyer_see.this,"Successfully Placed Your Order",Toast.LENGTH_LONG).show();
+                Toast.makeText(BuyerSearch.this,"Successfully Placed Your Order",Toast.LENGTH_LONG).show();
                 buyeritemrecyclerAdapter.notifyDataSetChanged();
                 System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+            }
+            public void setClickadd(int abc) {
+                auth = FirebaseAuth.getInstance();
+                FirebaseUser user = auth.getCurrentUser();
+                username=user.getEmail();
+                RecyclerView.ViewHolder item=recyclerview.findViewHolderForAdapterPosition(abc);
+                System.out.println(Iteminfolist.get(abc).item_image_url);
+                String imageurl=Iteminfolist.get(abc).item_image_url;
+                String itemname=Iteminfolist.get(abc).item_name;
+                String itemrate=Iteminfolist.get(abc).item_rate;
+                String itemcategory=Iteminfolist.get(abc).item_category;
+                reference = FirebaseDatabase.getInstance().getReference();
+                String id=reference.push().getKey();
+                Buyer_Order bo=new Buyer_Order(username,itemname,itemrate,itemcategory,imageurl,id);
+                reference.child("BUYER_CART").child(user.getUid()).child(id).setValue(bo);
+                Toast.makeText(BuyerSearch.this,"Successfully Added to cart",Toast.LENGTH_LONG).show();
+                buyeritemrecyclerAdapter.notifyDataSetChanged();
             }
         };
         search_string=i.getStringExtra("search_string");

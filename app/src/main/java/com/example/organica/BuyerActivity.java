@@ -20,6 +20,10 @@ public class BuyerActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     public EditText search_item;
 
+    public void gotocart(View view){
+        Intent i = new Intent(BuyerActivity.this, BuyerCart.class);
+        startActivity(i);
+    }
     public void search(View view) {
         String search = search_item.getText().toString();
         if (search.trim().length() > 0) {
