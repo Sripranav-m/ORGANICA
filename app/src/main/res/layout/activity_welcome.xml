@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".welcome"
+    android:background="@drawable/welcomebg">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WELCOME"
+                android:textColor="#E4E367"
+                android:fontFamily="@font/bold"
+                android:textSize="70sp"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Have a good day!"
+                android:fontFamily="@font/regular"
+                android:layout_centerInParent="true"
+                android:textColor="#708DBF"
+
+                android:textSize="30dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <Button
+                android:id="@+id/login_first"
+                android:layout_width="120dp"
+                android:layout_height="45dp"
+                android:text="LOGIN"
+                android:background="@drawable/login_shape"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+
+                android:gravity="center"
+                android:fontFamily="@font/medium"
+                android:layout_marginTop="20dp"
+               android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
