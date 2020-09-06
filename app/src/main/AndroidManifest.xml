@@ -9,21 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BuyerItemRecyclerAdapter" />
+        <activity android:name=".Seller_post"></activity>
+        <activity android:name=".BuyerSearch" />
         <activity android:name=".Buyer_see" />
-        <activity android:name=".Seller_see" />
-        <activity android:name=".Seller_post" />
-        <activity android:name=".ShowArticles" />
-        <activity android:name=".AddArticle" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SellerActivity" />
+        <activity android:name=".BuyerActivity" />
+        <activity android:name=".RegisterActivitySeller" />
+        <activity android:name=".RegisterActivityBuyer" />
+        <activity android:name=".LoginActivitySeller" />
+        <activity android:name=".LoginActivityBuyer" />
+        <activity android:name=".MainActivity" />
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

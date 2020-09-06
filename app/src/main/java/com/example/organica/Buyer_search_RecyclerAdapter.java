@@ -14,21 +14,21 @@ import java.util.ArrayList;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapter.ViewHolder> {
+public class Buyer_search_RecyclerAdapter extends RecyclerView.Adapter<Buyer_search_RecyclerAdapter.ViewHolder> {
     private static final String Tag="RecyclerView";
     private  Context context;
     private ArrayList<ItemInfo> iteminfolist;
 
-    public ItemRecyclerAdapter(Context c,ArrayList<ItemInfo> a){
+    public Buyer_search_RecyclerAdapter(Context c,ArrayList<ItemInfo> a){
         this.context=c;
         this.iteminfolist=a;
     }
 
     @NonNull
     @Override
-    public ItemRecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public Buyer_search_RecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_card_seller,parent,false);
+                .inflate(R.layout.item_buyer_card,parent,false);
         return new ViewHolder(view);
     }
 
@@ -36,9 +36,9 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.item_name.setText(iteminfolist.get(position).getitem_name());
         holder.item_rate.setText(iteminfolist.get(position).getitem_rate());
-        holder.item_category.setText(iteminfolist.get(position).getitem_category());
-        holder.seller_username.setText(iteminfolist.get(position).getseller_username());
         holder.available_units.setText(iteminfolist.get(position).getavailable_units());
+        holder.seller_username.setText(iteminfolist.get(position).getseller_username());
+        holder.item_category.setText(iteminfolist.get(position).getitem_category());
         Glide.with(context)
                 .load(iteminfolist.get(position).getitem_image_url())
                 .into(holder.item_image);
@@ -53,10 +53,9 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
         TextView item_name;
         ImageView item_image;
         TextView item_rate;
-        TextView item_category;
-        TextView seller_username;
         TextView available_units;
-
+        TextView seller_username;
+        TextView item_category;
         public ViewHolder(@NonNull View itemview){
             super( itemview);
             item_image=itemview.findViewById(R.id.item_image);

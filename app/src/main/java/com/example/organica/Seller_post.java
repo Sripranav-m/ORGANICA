@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -33,20 +35,15 @@ public class Seller_post extends AppCompatActivity {
     public String item_category;
     private int cando=0;
     private int candor=0;
-
     public EditText item_name_;
     public EditText item_rate_;
     public EditText available_units_;
     public ImageView item_image_url_;
-
     private Uri imageuri;
-
     private FirebaseStorage storage;
-
     public DatabaseReference databaseReference;
-
+    private FirebaseAuth auth;
     private StorageReference storagereference;
-
     public DatabaseReference reference;
 
     public void add_item_image(View view){
@@ -55,7 +52,6 @@ public class Seller_post extends AppCompatActivity {
         i.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(i,1);
     }
-
     public void onRadioButtonClicked(View view) {
         boolean checked = ((RadioButton) view).isChecked();
         candor=1;
@@ -64,7 +60,7 @@ public class Seller_post extends AppCompatActivity {
                 if (checked) {
                     item_category = "VEGETABLES";
                 }
-                    break;
+                break;
             case R.id.fruits:
                 if (checked) {
                     item_category = "FRUITS";
@@ -112,8 +108,9 @@ public class Seller_post extends AppCompatActivity {
         item_rate_=(EditText)findViewById(R.id.item_rate);
         available_units_=(EditText)findViewById(R.id.available_units);
         reference = FirebaseDatabase.getInstance().getReference();
-        seller_username="SRIPRANAV";//////////////////AS OF NOW ///////////////////////////////////////////////////
-
+        auth = FirebaseAuth.getInstance();
+        FirebaseUser user = auth.getCurrentUser();
+        seller_username=user.getEmail();
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -122,7 +119,6 @@ public class Seller_post extends AppCompatActivity {
             imageuri=data.getData();
             item_image_url_.setImageURI(imageuri);
             cando=1;
-            System.out.println("*******************************************");
         }
     }
     private void uploadpicture(){
@@ -137,7 +133,6 @@ public class Seller_post extends AppCompatActivity {
                         riversRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                             @Override
                             public void onSuccess(Uri uri) {
-                                System.out.println("============================================================================");
                                 String url = uri.toString();
                                 String item_name=item_name_.getText().toString();
                                 String item_rate=item_rate_.getText().toString();
@@ -148,7 +143,7 @@ public class Seller_post extends AppCompatActivity {
                                 reference.child("ITEMS").child(item_category).child(id).setValue(articleInfo);
                                 pd.dismiss();
                                 Toast.makeText(getApplicationContext(),"Successfully Uploaded...",Toast.LENGTH_SHORT).show();
-                                Intent i=new Intent(Seller_post.this,MainActivity.class);
+                                Intent i=new Intent(Seller_post.this,SellerActivity.class);
                                 startActivity(i);
                             }
                         });
