@@ -1,4 +1,5 @@
 package com.example.organica;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -46,8 +47,8 @@ public class BuyerSearch extends AppCompatActivity {
     private BuyerItemRecyclerAdapter buyeritemrecyclerAdapter;
     private Context context;
     public String username;
-    private FirebaseAuth auth;
     private onClickInterface onclickInterface;
+    private FirebaseAuth auth;
     private StorageReference storagereference;
     public DatabaseReference reference;
     private FirebaseStorage storage;
@@ -76,7 +77,6 @@ public class BuyerSearch extends AppCompatActivity {
                 reference.child("BUYER_ORDERS").child(user.getUid()).child(id).setValue(bo);
                 Toast.makeText(BuyerSearch.this,"Successfully Placed Your Order",Toast.LENGTH_LONG).show();
                 buyeritemrecyclerAdapter.notifyDataSetChanged();
-                System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
             }
             public void setClickadd(int abc) {
                 auth = FirebaseAuth.getInstance();
@@ -104,8 +104,9 @@ public class BuyerSearch extends AppCompatActivity {
         recyclerview.setHasFixedSize(true);
         myref=FirebaseDatabase.getInstance().getReference();
         Iteminfolist=new ArrayList<>();
-        FirebaseUser user = auth.getCurrentUser();
-        username=user.getUid();/////////////////////////////////////as of now//////////////////////
+//        FirebaseUser user = auth.getCurrentUser();
+//        username=user.getUid();/////////////////////////////////////as of now//////////////////////
+        username="SRIPRANAV";
         clearall();
         search_string=search_string.toLowerCase();
         GetDataFromFirebase(search_string,"VEGETABLES");

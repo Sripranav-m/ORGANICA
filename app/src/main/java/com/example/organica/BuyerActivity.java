@@ -34,31 +34,26 @@ public class BuyerActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Failed To search.....", Toast.LENGTH_SHORT).show();
         }
     }
-
     public void buyer_vegetables(View view) {
         Intent i = new Intent(BuyerActivity.this, Buyer_see.class);
         i.putExtra("item_category", "VEGETABLES");
         startActivity(i);
     }
-
     public void buyer_fruits(View view) {
         Intent i = new Intent(BuyerActivity.this, Buyer_see.class);
         i.putExtra("item_category", "FRUITS");
         startActivity(i);
     }
-
     public void buyer_beverages(View view) {
         Intent i = new Intent(BuyerActivity.this, Buyer_see.class);
         i.putExtra("item_category", "BEVERAGES");
         startActivity(i);
     }
-
     public void buyer_snacks(View view) {
         Intent i = new Intent(BuyerActivity.this, Buyer_see.class);
         i.putExtra("item_category", "SNACKS");
         startActivity(i);
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
