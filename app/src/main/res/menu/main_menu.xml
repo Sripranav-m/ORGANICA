@@ -16,9 +16,9 @@
             android:icon="@drawable/ic_article_kl"
             android:title="Articles" />
         <item
-            android:id="@+id/nav_cart"
-            android:icon="@drawable/ic_shopping_cart"
-            android:title="Cart" />
+            android:id="@+id/nav_my_orders"
+            android:icon="@drawable/ic_order"
+            android:title="My Orders" />
 
         <item
             android:id="@+id/sign_out"

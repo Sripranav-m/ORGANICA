@@ -29,7 +29,6 @@ public class Home extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         FirebaseUser user = auth.getCurrentUser();
-
         if(user!=null){
             DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Sellers");
             ref.orderByChild("id").equalTo(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -58,7 +57,7 @@ public class Home extends AppCompatActivity {
                     for(DataSnapshot ds: snapshot.getChildren()){
                         String accountType = ""+ds.child("accountType").getValue();
                         if(accountType.equals("buyer")){
-                            Intent intent = new Intent(Home.this, BuyerActivity.class);
+                            Intent intent = new Intent(Home.this, BuyerHomeActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
                         }
@@ -69,7 +68,6 @@ public class Home extends AppCompatActivity {
 
                 }
             });
-
 
         }else{
             startActivity(new Intent(Home.this, MainActivity.class));

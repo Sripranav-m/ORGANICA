@@ -8,43 +8,6 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:377946732771:android:2e10cfc284ebd1b95b2dd6",
-        "android_client_info": {
-          "package_name": "com.example.dashboard"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "377946732771-obrnl42c4k6ph9ovc9e673v75hll5kj0.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.dashboard",
-            "certificate_hash": "d76e4f928bf67b5b852373bb5c3e9a4bb9d7764e"
-          }
-        },
-        {
-          "client_id": "377946732771-i7m2ea1bo2p589emit4oe3mg0l04658u.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyB8zhFO3eOD5y0SZgzCSW_Bgz_3V2qwdIA"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "377946732771-i7m2ea1bo2p589emit4oe3mg0l04658u.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:377946732771:android:20fca054883c35305b2dd6",
         "android_client_info": {
           "package_name": "com.example.organica"
