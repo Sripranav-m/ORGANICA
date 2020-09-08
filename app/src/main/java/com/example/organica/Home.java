@@ -57,7 +57,7 @@ public class Home extends AppCompatActivity {
                     for(DataSnapshot ds: snapshot.getChildren()){
                         String accountType = ""+ds.child("accountType").getValue();
                         if(accountType.equals("buyer")){
-                            Intent intent = new Intent(Home.this, BuyerActivity.class);
+                            Intent intent = new Intent(Home.this, BuyerHomeActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
                         }

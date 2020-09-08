@@ -96,6 +96,7 @@ public class Seller_post extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Failed To upload.....",Toast.LENGTH_SHORT).show();
         }
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,7 +110,7 @@ public class Seller_post extends AppCompatActivity {
         reference = FirebaseDatabase.getInstance().getReference();
         auth = FirebaseAuth.getInstance();
         FirebaseUser user = auth.getCurrentUser();
-        seller_username=user.getEmail();
+        seller_username=user.getUid();
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

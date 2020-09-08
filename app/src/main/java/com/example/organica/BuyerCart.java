@@ -55,10 +55,12 @@ public class BuyerCart extends AppCompatActivity {
                 String itemrate=BuyerOrderinfolist.get(abc).item_rate;
                 String itemcategory=BuyerOrderinfolist.get(abc).item_category;
                 String order_id=BuyerOrderinfolist.get(abc).order_id;
+                String seller=BuyerOrderinfolist.get(abc).seller_username;
                 reference = FirebaseDatabase.getInstance().getReference();
                 String id=reference.push().getKey();
-                Buyer_Order bo=new Buyer_Order(username,itemname,itemrate,itemcategory,imageurl,id);
+                Buyer_Order bo=new Buyer_Order(username,itemname,itemrate,itemcategory,imageurl,id,seller);
                 reference.child("BUYER_ORDERS").child(user.getUid()).child(id).setValue(bo);
+                reference.child("TO_SELLER_BUYER_DETAILS").child(seller).child(id).setValue(bo);
                 Toast.makeText(BuyerCart.this,"Successfully Placed Your Order",Toast.LENGTH_SHORT).show();
                 reference.child("BUYER_CART").child(user.getUid()).child(order_id).removeValue();
                 buyerCartRecyclerAdapter.notifyDataSetChanged();
@@ -74,9 +76,10 @@ public class BuyerCart extends AppCompatActivity {
                 String itemrate=BuyerOrderinfolist.get(abc).item_rate;
                 String itemcategory=BuyerOrderinfolist.get(abc).item_category;
                 String order_id=BuyerOrderinfolist.get(abc).order_id;
+                String seller=BuyerOrderinfolist.get(abc).seller_username;
                 reference = FirebaseDatabase.getInstance().getReference();
                 String id=reference.push().getKey();
-                Buyer_Order bo=new Buyer_Order(username,itemname,itemrate,itemcategory,imageurl,id);
+                Buyer_Order bo=new Buyer_Order(username,itemname,itemrate,itemcategory,imageurl,id,seller);
                 Toast.makeText(BuyerCart.this,"Removing From Cart.....",Toast.LENGTH_SHORT).show();
                 reference.child("BUYER_CART").child(user.getUid()).child(order_id).removeValue();
                 buyerCartRecyclerAdapter.notifyDataSetChanged();
@@ -92,7 +95,6 @@ public class BuyerCart extends AppCompatActivity {
         FirebaseUser user = auth.getCurrentUser();
         username=user.getUid();
         clearall();
-        System.out.println("=============================");
         System.out.println(username);
         GetDataFromFirebase(username);
     }
@@ -103,7 +105,7 @@ public class BuyerCart extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 clearall();
                 for(DataSnapshot snapshott:snapshot.getChildren()){
-                    Buyer_Order iteminfo=new Buyer_Order("","","","","","");
+                    Buyer_Order iteminfo=new Buyer_Order("","","","","","","");
                     iteminfo.setitem_image_url(snapshott.child("item_image_url").getValue().toString());
                     iteminfo.setbuyer_username(username);
                     iteminfo.setitem_rate(snapshott.child("item_rate").getValue().toString());

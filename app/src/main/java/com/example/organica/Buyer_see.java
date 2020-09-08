@@ -81,15 +81,16 @@ public class Buyer_see extends AppCompatActivity {
                 FirebaseUser user = auth.getCurrentUser();
                 username=user.getEmail();
                 RecyclerView.ViewHolder item=recyclerview.findViewHolderForAdapterPosition(abc);
-                System.out.println(Iteminfolist.get(abc).item_image_url);
                 String imageurl=Iteminfolist.get(abc).item_image_url;
                 String itemname=Iteminfolist.get(abc).item_name;
                 String itemrate=Iteminfolist.get(abc).item_rate;
                 String itemcategory=Iteminfolist.get(abc).item_category;
+                String seller=Iteminfolist.get(abc).seller_username;
                 reference = FirebaseDatabase.getInstance().getReference();
                 String id=reference.push().getKey();
-                Buyer_Order bo=new Buyer_Order(username,itemname,itemrate,itemcategory,imageurl,id);
+                Buyer_Order bo=new Buyer_Order(username,itemname,itemrate,itemcategory,imageurl,id,seller);
                 reference.child("BUYER_ORDERS").child(user.getUid()).child(id).setValue(bo);
+                reference.child("TO_SELLER_BUYER_DETAILS").child(seller).child(id).setValue(bo);
                 Toast.makeText(Buyer_see.this,"Successfully Placed Your Order",Toast.LENGTH_LONG).show();
                 buyeritemrecyclerAdapter.notifyDataSetChanged();
             }
@@ -103,9 +104,10 @@ public class Buyer_see extends AppCompatActivity {
                 String itemname=Iteminfolist.get(abc).item_name;
                 String itemrate=Iteminfolist.get(abc).item_rate;
                 String itemcategory=Iteminfolist.get(abc).item_category;
+                String seller=Iteminfolist.get(abc).seller_username;
                 reference = FirebaseDatabase.getInstance().getReference();
                 String id=reference.push().getKey();
-                Buyer_Order bo=new Buyer_Order(username,itemname,itemrate,itemcategory,imageurl,id);
+                Buyer_Order bo=new Buyer_Order(username,itemname,itemrate,itemcategory,imageurl,id,seller);
                 reference.child("BUYER_CART").child(user.getUid()).child(id).setValue(bo);
                 Toast.makeText(Buyer_see.this,"Successfully Added to cart",Toast.LENGTH_LONG).show();
                 buyeritemrecyclerAdapter.notifyDataSetChanged();
@@ -120,7 +122,7 @@ public class Buyer_see extends AppCompatActivity {
         Iteminfolist=new ArrayList<>();
         auth = FirebaseAuth.getInstance();
         FirebaseUser user = auth.getCurrentUser();
-        username=user.getEmail();
+        username=user.getUid();
         clearall();
         GetDataFromFirebase(item_category,"");
     }
@@ -157,7 +159,6 @@ public class Buyer_see extends AppCompatActivity {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
     }

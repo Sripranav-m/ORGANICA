@@ -6,7 +6,10 @@ public class ArticlesInfo {
     public String content;
     public String imageurl;
 
-    public ArticlesInfo(String username,String heading,String content,String imageurl){
+    public ArticlesInfo() {
+    }
+
+    public ArticlesInfo(String username, String heading, String content, String imageurl){
         this.username=username;
         this.heading=heading;
         this.content=content;
