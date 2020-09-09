@@ -9,6 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -19,6 +24,7 @@ public class BuyerItemRecyclerAdapter extends RecyclerView.Adapter<BuyerItemRecy
     private static final String Tag="RecyclerView";
     private  Context context;
     private ArrayList<ItemInfo> iteminfolist;
+    DatabaseReference myref = FirebaseDatabase.getInstance().getReference().child("Sellers");
     onClickInterface onClickInterface;
 
     public BuyerItemRecyclerAdapter(Context c,ArrayList<ItemInfo> a,onClickInterface onClickInterface){
@@ -35,13 +41,28 @@ public class BuyerItemRecyclerAdapter extends RecyclerView.Adapter<BuyerItemRecy
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder,final int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
+
+        myref.child(iteminfolist.get(position).getseller_username()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.hasChild("Name")){
+                    final String seller_name = snapshot.child("Email").getValue().toString();
+                    holder.seller_username.setText(seller_name);
+                }
+
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         holder.item_name.setText(iteminfolist.get(position).getitem_name());
         holder.item_rate.setText(iteminfolist.get(position).getitem_rate());
         holder.available_units.setText(iteminfolist.get(position).getavailable_units());
-        holder.seller_username.setText(iteminfolist.get(position).getseller_username());
+//        holder.seller_username.setText(iteminfolist.get(position).getseller_username());
         holder.item_category.setText(iteminfolist.get(position).getitem_category());
-        holder.c.setText(iteminfolist.get(position).getid());
         Glide.with(context)
                 .load(iteminfolist.get(position).getitem_image_url())
                 .into(holder.item_image);
@@ -58,7 +79,9 @@ public class BuyerItemRecyclerAdapter extends RecyclerView.Adapter<BuyerItemRecy
                 onClickInterface.setClickadd(position);
             }
         });
+
     }
+
     @Override
     public int getItemCount() {
         return iteminfolist.size();
@@ -71,7 +94,6 @@ public class BuyerItemRecyclerAdapter extends RecyclerView.Adapter<BuyerItemRecy
         TextView available_units;
         TextView seller_username;
         TextView item_category;
-        TextView c;
         Button buy_button;
         Button add_button;
         public ViewHolder(@NonNull View itemview){
@@ -84,7 +106,6 @@ public class BuyerItemRecyclerAdapter extends RecyclerView.Adapter<BuyerItemRecy
             seller_username=itemview.findViewById(R.id.seller_username);
             buy_button=itemview.findViewById(R.id.buy_button);
             add_button=itemview.findViewById(R.id.add_button);
-            c=itemview.findViewById(R.id.item_buy_units);
         }
     }
 }

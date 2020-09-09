@@ -1,53 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterActivityBuyer"
-    android:background="@drawable/welcomebg"
-    android:orientation="vertical">
+    android:background="@drawable/loginbg"
+    android:orientation="horizontal">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
-
-        <ImageButton
-            android:id="@+id/back_register"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/ic_left_ar"
-            android:layout_alignParentLeft="true"
-
-            />
-
-    </RelativeLayout>
+        />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="200dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="REGISTER"
+            android:text="Register"
+            android:id="@+id/login"
             android:fontFamily="@font/bold"
-            android:textSize="40sp"
-            android:textColor="#E8E6D8"
-            android:layout_centerHorizontal="true"/>
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="120dp"/>
+
+        <View
+            android:layout_below="@id/login"
+            android:id="@+id/line"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="40dp"
+            android:layout_width="80dp"
+            android:layout_height="2dp"
+            android:background="#75FFFFFF" />
+        <View
+            android:layout_below="@id/login"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="120dp"
+            android:layout_width="100dp"
+            android:layout_height="2dp"
+            android:background="#FFFFFF" />
     </RelativeLayout>
+
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="270dp"
         android:orientation="vertical">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp">
-
+            android:layout_margin="10dp">
             <EditText
+                android:textColor="#ffffff"
                 android:id="@+id/register_buyer_name"
                 android:layout_width="331dp"
                 android:layout_height="52dp"
@@ -57,15 +64,17 @@
                 android:hint="Name"
                 android:inputType="textPersonName"
                 android:paddingLeft="30dp"
-                android:textColorHint="#DAC0C0" />
+                android:textColorHint="#DAC0C0"
+                />
 
 
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp">
+            android:layout_margin="10dp">
             <EditText
+                android:textColor="#ffffff"
                 android:id="@+id/register_buyer_email"
                 android:layout_width="331dp"
                 android:layout_height="52dp"
@@ -83,8 +92,9 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp">
+            android:layout_margin="10dp">
             <EditText
+                android:textColor="#ffffff"
                 android:id="@+id/register_buyer_pass"
                 android:layout_width="331dp"
                 android:layout_height="52dp"
@@ -102,8 +112,9 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp">
+            android:layout_margin="10dp">
             <EditText
+                android:textColor="#ffffff"
                 android:id="@+id/register_buyer_phone"
                 android:layout_width="331dp"
                 android:layout_height="52dp"
@@ -121,8 +132,9 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp">
+            android:layout_margin="10dp">
             <EditText
+                android:textColor="#ffffff"
                 android:id="@+id/register_buyer_address"
                 android:layout_width="331dp"
                 android:layout_height="92dp"
@@ -130,31 +142,31 @@
                 android:background="@drawable/login_shape"
                 android:fontFamily="@font/regular"
                 android:hint="Home Address"
-                android:inputType="textPersonName"
+                android:inputType="textMultiLine"
                 android:paddingLeft="30dp"
                 android:textColorHint="#DAC0C0"
                 />
 
 
         </RelativeLayout>
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="20dp">
             <Button
                 android:id="@+id/register_buyer_button"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:text="Register Buyer"
+                android:text="Register BUYER"
                 android:fontFamily="@font/bold"
                 android:textSize="20sp"
-                android:background="@drawable/login_shape"
-                android:layout_centerInParent="true"
+                android:background="@drawable/login_shape_change"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="60dp"
                 android:textColor="#FDF5F2"/>
         </RelativeLayout>
 
+
     </LinearLayout>
 
-
-</LinearLayout>
+</RelativeLayout>

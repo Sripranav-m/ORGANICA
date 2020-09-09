@@ -19,7 +19,7 @@ public class SellerBuyerRecyclerAdapter extends RecyclerView.Adapter<SellerBuyer
     private  Context context;
     private ArrayList<SellerBuyerInfo> iteminfolist;
 
-    public SellerBuyerRecyclerAdapter(Context c,ArrayList<SellerBuyerInfo> a){
+    public SellerBuyerRecyclerAdapter(Context c, ArrayList<SellerBuyerInfo> a){
         this.context=c;
         this.iteminfolist=a;
     }

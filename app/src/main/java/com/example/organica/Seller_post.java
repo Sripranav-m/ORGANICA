@@ -21,6 +21,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -138,14 +139,18 @@ public class Seller_post extends AppCompatActivity {
                                 String item_rate=item_rate_.getText().toString();
                                 String available_units=available_units_.getText().toString();
                                 String itemcategory=item_category;
-                                String item_buy_count="0";
+                                ItemInfo articleInfo = new ItemInfo(seller_username,item_name,item_rate,available_units,itemcategory,url);
                                 String id=reference.push().getKey();
-                                ItemInfo articleInfo = new ItemInfo(seller_username,item_name,item_rate,available_units,itemcategory,url,item_buy_count,id);
                                 reference.child("ITEMS").child(item_category).child(id).setValue(articleInfo);
                                 pd.dismiss();
                                 Toast.makeText(getApplicationContext(),"Successfully Uploaded...",Toast.LENGTH_SHORT).show();
-                                Intent i=new Intent(Seller_post.this,SellerActivity.class);
-                                startActivity(i);
+
+                                try {
+                                    TimeUnit.SECONDS.sleep(3);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                                finish();
                             }
                         });
                     }

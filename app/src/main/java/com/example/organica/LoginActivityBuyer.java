@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -36,23 +37,24 @@ public class LoginActivityBuyer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_buyer);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         email = findViewById(R.id.login_buyer_email);
         password = findViewById(R.id.login_buyer_pass);
         login = findViewById(R.id.buyer_log_in);
         signup = findViewById(R.id.buyer_sign_up);
-        back =  findViewById(R.id.login_back);
+//        back =  findViewById(R.id.login_back);
 
         auth = FirebaseAuth.getInstance();
 
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LoginActivityBuyer.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
+//        back.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(LoginActivityBuyer.this, MainActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override

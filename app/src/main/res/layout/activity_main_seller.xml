@@ -65,7 +65,7 @@
         app:itemTextAppearance="@style/TextViewStyle"
         app:itemIconTint="#fff"
         app:itemHorizontalPadding="40dp"
-        app:menu="@menu/main_menu" />
+        app:menu="@menu/seller_main_menu" />
 
 
 

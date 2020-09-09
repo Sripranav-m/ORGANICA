@@ -9,14 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SellerShowBuyer"></activity>
-        <activity android:name=".AddArticle" />
-        <activity android:name=".BuyerCart" />
-        <activity android:name=".Seller_post" />
-        <activity android:name=".BuyerHomeActivity" />
+        <activity android:name=".walkthrough"></activity>
+        <activity android:name=".splash_screen"></activity>
+        <activity android:name=".AddArticle"></activity>
+        <activity android:name=".most_buyed"></activity>
+        <activity android:name=".BuyerCart"></activity>
+        <activity android:name=".Seller_post"></activity>
+        <activity android:name=".SellerHomeActivity"></activity>
+        <activity android:name=".BuyerHomeActivity"/>
         <activity android:name=".BuyerSearch" />
         <activity android:name=".Buyer_see" />
-        <activity android:name=".Home">
+        <activity android:name=".Home"
+            android:label="Organica">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

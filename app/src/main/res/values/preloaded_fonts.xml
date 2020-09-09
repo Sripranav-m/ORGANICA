@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/aclonica</item>
+        <item>@font/bungee_inline</item>
+        <item>@font/cabin_sketch</item>
+        <item>@font/convergence</item>
+        <item>@font/happy_monkey</item>
+    </array>
+</resources>

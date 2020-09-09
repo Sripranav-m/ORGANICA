@@ -43,8 +43,9 @@
         </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:background="#212121"
             android:id="@+id/buyer_see_recyclerview"
-            android:layout_width="409dp"
+            android:layout_width="match_parent"
             android:layout_height="729dp"
             android:layout_below="@id/search_text"
             tools:layout_editor_absoluteX="1dp"

@@ -7,27 +7,17 @@ public class Buyer_Order {
     public String item_category;
     public String item_image_url;
     public String order_id;
-    public String seller_username;
-    public String item_buy_count;
 
-    public Buyer_Order(String buyer_username,String item_name,String item_rate,String item_category,String item_image_url,String order_id,String seller_username,String item_buy_count){
+    public Buyer_Order(String buyer_username,String item_name,String item_rate,String item_category,String item_image_url,String order_id){
         this.buyer_username=buyer_username;
         this.item_name=item_name;
         this.item_rate=item_rate;
         this.item_category=item_category;
         this.item_image_url=item_image_url;
         this.order_id=order_id;
-        this.seller_username=seller_username;
-        this.item_buy_count=item_buy_count;
     }
     public String getbuyer_username(){
         return buyer_username;
-    }
-    public String getseller_username(){
-        return seller_username;
-    }
-    public String getitem_buy_count(){
-        return item_buy_count;
     }
     public String getitem_name(){
         return item_name;
@@ -49,12 +39,6 @@ public class Buyer_Order {
     }
     public void setbuyer_username(String buyer_username){
         this.buyer_username=buyer_username;
-    }
-    public void setseller_username(String buyer_username){
-        this.buyer_username=seller_username;
-    }
-    public void setitem_buy_count(String item_buy_count){
-        this.item_buy_count=item_buy_count;
     }
     public void setitem_name(String item_name){
 

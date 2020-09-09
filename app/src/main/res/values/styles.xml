@@ -9,7 +9,7 @@
     </style>
     <style name = "AppTheme.NoActionBar">
         <item name = "windowActionBar">false</item>
-        <item name ="windowNoTitle">true</item>
+
     </style>
     <style name="RobotoTextViewStyle" parent="android:Widget.TextView">
         <item name="android:fontFamily">@font/regular</item>

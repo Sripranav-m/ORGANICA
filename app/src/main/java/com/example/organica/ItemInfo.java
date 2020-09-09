@@ -8,31 +8,33 @@ public class ItemInfo {
     public String item_category;
     public String item_image_url;
     public String item_buy_count;
-    public String id;
 
-    public ItemInfo(String seller_username,String item_name,String item_rate,String available_units,String item_category,String item_image_url,String item_buy_count,String id){
+
+    public ItemInfo(String seller_username,String item_name,String item_rate,String available_units,String item_category,String item_image_url){
         this.seller_username=seller_username;
         this.item_name=item_name;
         this.item_rate=item_rate;
         this.available_units=available_units;
         this.item_category=item_category;
         this.item_image_url=item_image_url;
-        this.item_buy_count=item_buy_count;
-        this.id=id;
+        this.item_buy_count="0";
     }
     public String getseller_username(){
         return seller_username;
     }
-    public String getid(){
-        return id;
+
+    public String getItem_buy_count() {
+        return item_buy_count;
+    }
+
+    public void setItem_buy_count(String item_buy_count) {
+        this.item_buy_count = item_buy_count;
     }
 
     public String getitem_name(){
         return item_name;
     }
-    public String getitem_buy_count(){
-        return item_buy_count;
-    }
+
     public String getavailable_units(){
 
         return available_units;
@@ -51,19 +53,13 @@ public class ItemInfo {
     public void setseller_username(String seller_username){
         this.seller_username=seller_username;
     }
-    public void setid(String id){
-        this.id=id;
-    }
+
     public void setitem_name(String item_name){
 
         this.item_name=item_name;
 
     }
-    public void setitem_buy_count(String item_buy_count){
 
-        this.item_buy_count=item_buy_count;
-
-    }
     public void setavailable_units(String available_units){
 
         this.available_units=available_units;

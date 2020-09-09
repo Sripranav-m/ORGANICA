@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -37,6 +38,7 @@ public class RegisterActivityBuyer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_buyer);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         name = findViewById(R.id.register_buyer_name);
         email = findViewById(R.id.register_buyer_email);
@@ -44,17 +46,17 @@ public class RegisterActivityBuyer extends AppCompatActivity {
         phone = findViewById(R.id.register_buyer_phone);
         address = findViewById(R.id.register_buyer_address);
         register = findViewById(R.id.register_buyer_button);
-        back = findViewById(R.id.back_register);
+//        back = findViewById(R.id.back_register);
 
         auth = FirebaseAuth.getInstance();
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(RegisterActivityBuyer.this, LoginActivityBuyer.class);
-                startActivity(intent);
-            }
-        });
+//        back.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(RegisterActivityBuyer.this, LoginActivityBuyer.class);
+//                startActivity(intent);
+//            }
+//        });
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,9 +1,13 @@
 package com.example.organica;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,18 +26,23 @@ public class BuyerHomeActivity extends AppCompatActivity implements NavigationVi
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
+    Toolbar toolbar;
+    TextView toolbar_title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_buyer);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         auth = FirebaseAuth.getInstance();
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        toolbar_title = findViewById(R.id.toolbar_title);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView =findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -64,10 +73,12 @@ public class BuyerHomeActivity extends AppCompatActivity implements NavigationVi
         switch(menuItem.getItemId())
         {
             case R.id.nav_home:
+//                toolbar_title.setText("");
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Home_Buyer()).commit();
                 break;
             case R.id.nav_article:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new articlefragment()).commit();
+//                toolbar_title.setText("ARTICLES");
                 break;
             case R.id.nav_my_orders:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new MyOrdersFragment()).commit();
@@ -75,7 +86,28 @@ public class BuyerHomeActivity extends AppCompatActivity implements NavigationVi
             case R.id.sign_out:
                 auth.signOut();
                 finish();
-                startActivity(new Intent(BuyerHomeActivity.this, MainActivity.class));
+                startActivity(new Intent(BuyerHomeActivity.this, splash_screen.class));
+                break;
+            case R.id.draw_share:
+                try {
+                    Intent shareIntent = new Intent();
+                    shareIntent.setAction(Intent.ACTION_SEND);
+                    shareIntent.putExtra(Intent.EXTRA_SUBJECT,"GO-ORGANIC");
+                    shareIntent.putExtra(Intent.EXTRA_TEXT,"https://play.google.com/store/apps?detals?id="+getApplicationContext().getPackageName());
+                    shareIntent.setType("text/plain");
+                    startActivity(Intent.createChooser(shareIntent,"Share Using"));;
+                } catch (Exception e) {
+                    Toast.makeText(this,"Unable to share\n"+e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.draw_rate:
+                Uri uri = Uri.parse("https://play.google.com/store/apps?detals?id="+getApplicationContext().getPackageName());
+                Intent rateIntent = new Intent(Intent.ACTION_VIEW,uri);
+                try {
+                    startActivity(rateIntent);
+                } catch (Exception e) {
+                    Toast.makeText(this,"Unable to open now\n"+e.getMessage(),Toast.LENGTH_SHORT).show();
+                }
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
