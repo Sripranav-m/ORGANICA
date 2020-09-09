@@ -56,14 +56,20 @@ public class BuyerCart extends AppCompatActivity {
                 String itemcategory=BuyerOrderinfolist.get(abc).item_category;
                 String order_id=BuyerOrderinfolist.get(abc).order_id;
                 String seller=BuyerOrderinfolist.get(abc).seller_username;
-                reference = FirebaseDatabase.getInstance().getReference();
-                String id=reference.push().getKey();
-                Buyer_Order bo=new Buyer_Order(username,itemname,itemrate,itemcategory,imageurl,id,seller);
-                reference.child("BUYER_ORDERS").child(user.getUid()).child(id).setValue(bo);
-                reference.child("TO_SELLER_BUYER_DETAILS").child(seller).child(id).setValue(bo);
-                Toast.makeText(BuyerCart.this,"Successfully Placed Your Order",Toast.LENGTH_SHORT).show();
-                reference.child("BUYER_CART").child(user.getUid()).child(order_id).removeValue();
-                buyerCartRecyclerAdapter.notifyDataSetChanged();
+                if(seller!="") {
+                    int x = Integer.parseInt(BuyerOrderinfolist.get(abc).item_buy_count);
+                    x++;
+                    BuyerOrderinfolist.get(abc).setitem_buy_count(String.valueOf(x));
+                    reference = FirebaseDatabase.getInstance().getReference();
+                    String id = reference.push().getKey();
+                    Buyer_Order bo = new Buyer_Order(username, itemname, itemrate, itemcategory, imageurl, id, seller, String.valueOf(x));
+                    reference.child("ITEMS").child(itemcategory).child(id).child("item_buy_count").setValue(x);
+                    reference.child("BUYER_ORDERS").child(user.getUid()).child(id).setValue(bo);
+                    reference.child("TO_SELLER_BUYER_DETAILS").child(seller).child(id).setValue(bo);
+                    reference.child("BUYER_CART").child(user.getUid()).child(order_id).removeValue();
+                    buyerCartRecyclerAdapter.notifyDataSetChanged();
+                }
+                Toast.makeText(BuyerCart.this, "Successfully Placed Your Order", Toast.LENGTH_SHORT).show();
             }
             public void setClickadd(int abc) {
                 auth = FirebaseAuth.getInstance();
@@ -77,9 +83,10 @@ public class BuyerCart extends AppCompatActivity {
                 String itemcategory=BuyerOrderinfolist.get(abc).item_category;
                 String order_id=BuyerOrderinfolist.get(abc).order_id;
                 String seller=BuyerOrderinfolist.get(abc).seller_username;
+                int x=Integer.parseInt(BuyerOrderinfolist.get(abc).item_buy_count);
                 reference = FirebaseDatabase.getInstance().getReference();
                 String id=reference.push().getKey();
-                Buyer_Order bo=new Buyer_Order(username,itemname,itemrate,itemcategory,imageurl,id,seller);
+                Buyer_Order bo=new Buyer_Order(username,itemname,itemrate,itemcategory,imageurl,id,seller,String.valueOf(x));
                 Toast.makeText(BuyerCart.this,"Removing From Cart.....",Toast.LENGTH_SHORT).show();
                 reference.child("BUYER_CART").child(user.getUid()).child(order_id).removeValue();
                 buyerCartRecyclerAdapter.notifyDataSetChanged();
@@ -105,13 +112,15 @@ public class BuyerCart extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 clearall();
                 for(DataSnapshot snapshott:snapshot.getChildren()){
-                    Buyer_Order iteminfo=new Buyer_Order("","","","","","","");
+                    Buyer_Order iteminfo=new Buyer_Order("","","","","","","","");
                     iteminfo.setitem_image_url(snapshott.child("item_image_url").getValue().toString());
                     iteminfo.setbuyer_username(username);
                     iteminfo.setitem_rate(snapshott.child("item_rate").getValue().toString());
                     iteminfo.setitem_name(snapshott.child("item_name").getValue().toString());
                     iteminfo.setitem_category(snapshott.child("item_category").getValue().toString());
                     iteminfo.setorder_id(snapshott.child("order_id").getValue().toString());
+                    iteminfo.setitem_buy_count(snapshott.child("item_buy_count").getValue().toString());
+                    iteminfo.setseller_username(snapshott.child("seller_username").getValue().toString());
                     BuyerOrderinfolist.add(iteminfo);
                 }
                 buyerCartRecyclerAdapter=new BuyerCartRecyclerAdapter(getApplicationContext(),BuyerOrderinfolist,onclickInterface);

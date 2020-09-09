@@ -65,20 +65,27 @@ public class BuyerSearch extends AppCompatActivity {
             public void setClick(int abc) {
                 auth = FirebaseAuth.getInstance();
                 FirebaseUser user = auth.getCurrentUser();
-                username=user.getEmail();
+                username=user.getUid();
                 RecyclerView.ViewHolder item=recyclerview.findViewHolderForAdapterPosition(abc);
                 String imageurl=Iteminfolist.get(abc).item_image_url;
                 String itemname=Iteminfolist.get(abc).item_name;
                 String itemrate=Iteminfolist.get(abc).item_rate;
                 String itemcategory=Iteminfolist.get(abc).item_category;
+                String iid=Iteminfolist.get(abc).id;
                 String seller=Iteminfolist.get(abc).seller_username;
+                int x=Integer.parseInt(Iteminfolist.get(abc).item_buy_count);
+                x++;
+                Iteminfolist.get(abc).setitem_buy_count(String.valueOf(x));
                 reference = FirebaseDatabase.getInstance().getReference();
-                String id=reference.push().getKey();
-                Buyer_Order bo=new Buyer_Order(username,itemname,itemrate,itemcategory,imageurl,id,seller);
-                reference.child("BUYER_ORDERS").child(user.getUid()).child(id).setValue(bo);
-                reference.child("TO_SELLER_BUYER_DETAILS").child(seller).child(id).setValue(bo);
-                Toast.makeText(Buyer_see.this,"Successfully Placed Your Order",Toast.LENGTH_LONG).show();
+                String idd=reference.push().getKey();
+                Buyer_Order bo=new Buyer_Order(username,itemname,itemrate,itemcategory,imageurl,idd,seller,String.valueOf(x));
+                reference.child("BUYER_ORDERS").child(user.getUid()).child(idd).setValue(bo);
+                reference.child("TO_SELLER_BUYER_DETAILS").child(seller).child(iid).setValue(bo);
+                Toast.makeText(BuyerSearch.this,"Successfully Placed Your Order",Toast.LENGTH_SHORT).show();
+                reference.child("ITEMS").child(itemcategory).child(iid).child("item_buy_count").setValue(x);
                 buyeritemrecyclerAdapter.notifyDataSetChanged();
+                Intent i=new Intent(BuyerSearch.this,Home.class);
+                startActivity(i);
             }
             public void setClickadd(int abc) {
                 auth = FirebaseAuth.getInstance();
@@ -91,11 +98,12 @@ public class BuyerSearch extends AppCompatActivity {
                 String itemrate=Iteminfolist.get(abc).item_rate;
                 String itemcategory=Iteminfolist.get(abc).item_category;
                 String seller=Iteminfolist.get(abc).seller_username;
+                int x=Integer.parseInt(Iteminfolist.get(abc).item_buy_count);
                 reference = FirebaseDatabase.getInstance().getReference();
                 String id=reference.push().getKey();
-                Buyer_Order bo=new Buyer_Order(username,itemname,itemrate,itemcategory,imageurl,id,seller);
+                Buyer_Order bo=new Buyer_Order(username,itemname,itemrate,itemcategory,imageurl,id,seller,String.valueOf(x));
                 reference.child("BUYER_CART").child(user.getUid()).child(id).setValue(bo);
-                Toast.makeText(Buyer_see.this,"Successfully Added to cart",Toast.LENGTH_LONG).show();
+                Toast.makeText(BuyerSearch.this,"Successfully Added to cart",Toast.LENGTH_LONG).show();
                 buyeritemrecyclerAdapter.notifyDataSetChanged();
             }
         };
@@ -107,8 +115,9 @@ public class BuyerSearch extends AppCompatActivity {
         recyclerview.setHasFixedSize(true);
         myref=FirebaseDatabase.getInstance().getReference();
         Iteminfolist=new ArrayList<>();
+        auth = FirebaseAuth.getInstance();
         FirebaseUser user = auth.getCurrentUser();
-        username=user.getUid();/////////////////////////////////////as of now//////////////////////
+        username=user.getUid();
         clearall();
         search_string=search_string.toLowerCase();
         GetDataFromFirebase(search_string,"VEGETABLES");
@@ -122,13 +131,15 @@ public class BuyerSearch extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot snapshott:snapshot.getChildren()){
-                    ItemInfo iteminfo=new ItemInfo("","","","","","");
+                    ItemInfo iteminfo=new ItemInfo("","","","","","","","");
                     iteminfo.setitem_image_url(snapshott.child("item_image_url").getValue().toString());
                     iteminfo.setseller_username(snapshott.child("seller_username").getValue().toString());
                     iteminfo.setitem_rate(snapshott.child("item_rate").getValue().toString());
                     iteminfo.setitem_name(snapshott.child("item_name").getValue().toString());
                     iteminfo.setitem_category(snapshott.child("item_category").getValue().toString());
                     iteminfo.setavailable_units(snapshott.child("available_units").getValue().toString());
+                    iteminfo.setid(snapshott.child("id").getValue().toString());
+                    iteminfo.setitem_buy_count(snapshott.child("item_buy_count").getValue().toString());
                     String temp=snapshott.child("item_name").getValue().toString();
                     temp=temp.toLowerCase();
                     if(temp.contains(search_string)) {

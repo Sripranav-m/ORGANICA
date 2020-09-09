@@ -41,6 +41,7 @@ public class BuyerItemRecyclerAdapter extends RecyclerView.Adapter<BuyerItemRecy
         holder.available_units.setText(iteminfolist.get(position).getavailable_units());
         holder.seller_username.setText(iteminfolist.get(position).getseller_username());
         holder.item_category.setText(iteminfolist.get(position).getitem_category());
+        holder.c.setText(iteminfolist.get(position).getid());
         Glide.with(context)
                 .load(iteminfolist.get(position).getitem_image_url())
                 .into(holder.item_image);
@@ -57,9 +58,7 @@ public class BuyerItemRecyclerAdapter extends RecyclerView.Adapter<BuyerItemRecy
                 onClickInterface.setClickadd(position);
             }
         });
-
     }
-
     @Override
     public int getItemCount() {
         return iteminfolist.size();
@@ -72,6 +71,7 @@ public class BuyerItemRecyclerAdapter extends RecyclerView.Adapter<BuyerItemRecy
         TextView available_units;
         TextView seller_username;
         TextView item_category;
+        TextView c;
         Button buy_button;
         Button add_button;
         public ViewHolder(@NonNull View itemview){
@@ -84,6 +84,7 @@ public class BuyerItemRecyclerAdapter extends RecyclerView.Adapter<BuyerItemRecy
             seller_username=itemview.findViewById(R.id.seller_username);
             buy_button=itemview.findViewById(R.id.buy_button);
             add_button=itemview.findViewById(R.id.add_button);
+            c=itemview.findViewById(R.id.item_buy_units);
         }
     }
 }

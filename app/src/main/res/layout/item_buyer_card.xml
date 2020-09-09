@@ -158,6 +158,30 @@
                 android:gravity="right"
                 android:text="CATEGORY " />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/itemunit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:fontFamily="@font/bold"
+                android:visibility="gone"
+                android:text="ITEM UNITS" />
+
+            <TextView
+                android:id="@+id/item_buy_units"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:fontFamily="@font/bold"
+                android:gravity="right"
+                android:visibility="gone"
+                android:text="UNITS " />
+        </LinearLayout>
 
         <Button
             android:id="@+id/add_button"

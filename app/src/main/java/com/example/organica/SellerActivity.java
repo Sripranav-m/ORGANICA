@@ -72,13 +72,14 @@ public class SellerActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot snapshott:snapshot.getChildren()){
-                    ItemInfo iteminfo=new ItemInfo("","","","","","");
+                    ItemInfo iteminfo=new ItemInfo("","","","","","","","");
                     iteminfo.setitem_image_url(snapshott.child("item_image_url").getValue().toString());
                     iteminfo.setseller_username(snapshott.child("seller_username").getValue().toString());
                     iteminfo.setitem_rate(snapshott.child("item_rate").getValue().toString());
                     iteminfo.setitem_name(snapshott.child("item_name").getValue().toString());
                     iteminfo.setitem_category(snapshott.child("item_category").getValue().toString());
                     iteminfo.setavailable_units(snapshott.child("available_units").getValue().toString());
+                    iteminfo.setid(snapshott.child("id").getValue().toString());
                     if(snapshott.child("seller_username").getValue().toString().equals(seller_username)) {
                         Iteminfolist.add(iteminfo);
                     }
