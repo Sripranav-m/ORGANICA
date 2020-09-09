@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivityBuyer"
+    android:background="@drawable/loginbg"
+    android:orientation="horizontal">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="220dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:id="@+id/login"
+            android:fontFamily="@font/bold"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="40dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:id="@+id/register"
+            android:fontFamily="@font/bold"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="40dp"/>
+
+        <View
+            android:layout_below="@id/login"
+            android:id="@+id/line"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="40dp"
+            android:layout_width="80dp"
+            android:layout_height="2dp"
+            android:background="#FFFFFF" />
+        <View
+            android:layout_below="@id/login"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="120dp"
+            android:layout_width="80dp"
+            android:layout_height="2dp"
+            android:background="#75FFFFFF" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/login_buyer_email"
+                android:textColor="#ffffff"
+                android:layout_width="331dp"
+                android:layout_height="52dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/login_shape"
+                android:fontFamily="@font/regular"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="30dp"
+                android:textColorHint="#DAC0C0"
+                />
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp">
+            <EditText
+                android:textColor="#ffffff"
+                android:id="@+id/login_buyer_pass"
+                android:layout_width="331dp"
+                android:layout_height="52dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/login_shape"
+                android:fontFamily="@font/regular"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:paddingLeft="30dp"
+                android:textColorHint="#DAC0C0"
+                />
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            >
+            <Button
+                android:id="@+id/buyer_log_in"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Login"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medium"
+                android:background="@drawable/login_shape_change"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Not a Member?"
+                android:fontFamily="@font/regular"
+                android:textSize="20sp"
+                android:textColor="#D8ECCB"
+                android:layout_centerInParent="true"/>
+
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
+            <Button
+                android:layout_width="200dp"
+                android:id="@+id/buyer_sign_up"
+                android:layout_height="wrap_content"
+                android:text="Register Now !"
+                android:fontFamily="@font/bold"
+                android:textSize="20sp"
+                android:background="@drawable/login_shape_change"
+                android:layout_centerInParent="true"
+                android:textColor="#FDF5F2"/>
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>

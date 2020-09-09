@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#00000000"
+
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:id="@+id/slogan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GO-ORGANIC"
+            android:fontFamily="@font/bold"
+            android:textSize="22sp"
+            android:layout_centerInParent="true"
+
+            />
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_herb"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="15dp"
+        app:cardCornerRadius="20dp"
+
+        >
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/bg"
+
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/heading"
+                    android:layout_width="331dp"
+                    android:layout_height="52dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/shape"
+                    android:fontFamily="@font/regular"
+
+                    android:hint="Heading.."
+                    android:inputType="textPersonName"
+                    android:paddingLeft="30dp"
+                    android:textColorHint="#1B1818" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/content"
+                    android:layout_width="361dp"
+                    android:layout_height="152dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/shape"
+                    android:fontFamily="@font/regular"
+                    android:gravity="top"
+                    android:hint="Enter your Content Here..."
+                    android:inputType="textMultiLine"
+
+
+                    android:paddingStart="30dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="20dp"
+                    android:textColorHint="#191717" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <Button
+                    android:layout_margin="10dp"
+
+                    android:layout_width="140dp"
+                    android:id="@+id/upload"
+                    android:onClick="upload"
+                    android:layout_height="wrap_content"
+
+                    android:background="@drawable/shape1"
+                    android:gravity="center"
+                    android:layout_centerInParent="true"
+
+
+                    android:fontFamily="@font/medium"
+                    android:text="Upload Image" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/uploadedimage"
+                    android:layout_width="200dp"
+                    android:layout_margin="10dp"
+                    android:layout_height="200dp"
+                    android:layout_centerInParent="true"
+                    app:srcCompat="@drawable/ic_launcher_background" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/submit"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="submit"
+                    android:layout_margin="10dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/shape1"
+                    android:text="SUBMIT" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
+
+

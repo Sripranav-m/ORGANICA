@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".walkthrough"
+    android:background="@drawable/orange"
+    android:orientation="vertical">
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:id="@+id/walk">
+
+    </androidx.viewpager.widget.ViewPager>
+
+    <LinearLayout
+
+
+
+        android:id="@+id/dots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+
+        android:layout_marginBottom="5dp"
+
+        android:orientation="horizontal">
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+        android:background="#00FFFFFF"
+        android:fontFamily="@font/medium"
+        android:text="BACK"
+        android:textColor="#2C292C"
+        android:textSize="20sp"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:textSize="20sp"
+        android:textColor="#2C292C"
+        android:background="#00FFFFFF"
+        android:text="NEXT"
+        android:fontFamily="@font/medium"/>
+
+
+
+</RelativeLayout>

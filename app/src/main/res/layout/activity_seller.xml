@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SellerActivity"
+    android:id="@+id/dlay">
+    <include
+        layout="@layout/toolbar"
+        android:id="@+id/tool"/>
+<!--    <com.google.android.material.navigation.NavigationView-->
+<!--        android:id="@+id/navvy"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="match_parent"-->
+
+<!--        app:headerLayout="@layout/header"-->
+<!--        android:layout_gravity = "start"-->
+<!--        />-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="11dp">
+
+                <ImageView
+                    android:id="@+id/tool_bar"
+                    android:layout_width="40dp"
+                    android:layout_height="35dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_menu" />
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:onClick="seller_post_items"
+                    android:src="@drawable/ic_sell" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/slogan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/bold"
+                    android:text="GO-ORGANIC"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/box1"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_margin="10dp"
+                    android:background="#D8C48E"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:layout_centerInParent="true"
+                        android:onClick="buyer_beverages"
+                        android:src="@drawable/ic_beer" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:layout_marginLeft="50dp"
+                        android:fontFamily="@font/regular"
+                        android:text="We are All Set To Deliver You the \n SAFEST and HEALTHIEST FOOD PRODUCTS"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/seller_recycler_view"
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="50dp"
+        tools:layout_editor_absoluteY="1dp" />
+    </LinearLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

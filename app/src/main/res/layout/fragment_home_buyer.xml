@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="#00EFE4E4"
+    >
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/slogan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/bold"
+                android:text="GO-ORGANIC"
+                android:textSize="18sp" />
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="40dp"-->
+            <!--                    android:layout_below="@id/slogan"-->
+            <!--                    android:background="@color/white"-->
+            <!--                    android:layout_marginLeft="40dp"-->
+            <!--                    android:layout_marginRight="40dp"-->
+            <!--                    android:layout_marginTop="10dp"-->
+
+            <!--                    android:elevation="8dp">-->
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:hint="Search"-->
+            <!--                        android:fontFamily="@font/medium"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:layout_marginLeft="15dp"/>-->
+            <!--                    <ImageView-->
+            <!--                        android:layout_width="30dp"-->
+            <!--                        android:layout_height="30dp"-->
+            <!--                        android:src="@drawable/ic_loupe"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:layout_marginRight="15dp"/>-->
+            <!--                </RelativeLayout>-->
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/slogan"
+            android:background="@color/white"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:elevation="8dp">
+
+            <EditText
+                android:id="@+id/search_text"
+                android:background="@null"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/medium"
+                android:hint="Search"
+                android:layout_toLeftOf="@+id/search_button"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:id="@+id/search_button"
+                android:src="@drawable/ic_loupe" />
+        </RelativeLayout>
+
+
+        <!--            <RelativeLayout-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content">-->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:clickable="true"
+                    android:id="@+id/buyer_beverages2"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/card_1">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_beer" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/text_beverages"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:gravity="center_horizontal"
+                    android:text="Beverages"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/buyer_fruits"
+                    android:clickable="true"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/card_1">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_fruits" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/text_fruits"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:gravity="center_horizontal"
+                    android:text="Fruits"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/buyer_vegetables"
+                    android:clickable="true"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/card_1">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_harvest" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/text_vegetables"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:gravity="center_horizontal"
+                    android:text="Vegetables"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/buyer_snacks2"
+                    android:clickable="true"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/card_1">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_snacks" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/text_snacks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:gravity="center_horizontal"
+                    android:text="Snacks"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="15dp"
+            android:background="#E6DBE4">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/importance"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_toRightOf="@+id/box1"
+                android:background="#DFD6D6" />
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bold"
+                    android:padding="5dp"
+                    android:text="Most Buyed"
+                    android:textAllCaps="true"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/view_all_buyed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/regular"
+                    android:text="View all" />
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+
+                android:id="@+id/buyed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:fontFamily="@font/bold"-->
+<!--                    android:padding="5dp"-->
+<!--                    android:text="Most Viewed Articles"-->
+<!--                    android:textAllCaps="true"-->
+<!--                    android:textSize="20sp" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/view_all_articles"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_alignParentRight="true"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:fontFamily="@font/regular"-->
+<!--                    android:text="View all" />-->
+
+<!--            </RelativeLayout>-->
+
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+
+<!--                android:id="@+id/articles"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="100dp" />-->
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
+
+
+</LinearLayout>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".splash_screen"
+    android:orientation="vertical"
+    android:background="@drawable/gr"
+
+
+
+
+   >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginTop="50dp"
+        android:id="@+id/rel1">
+
+        <ImageView
+            android:id="@+id/splash_image"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/loggy" />
+
+        <TextView
+            android:id="@+id/splash_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/splash_image"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/cabin_sketch"
+            android:text="GO-O"
+
+            android:textColor="#E6333035"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/splash_sloagn"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/splash_name"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/happy_monkey"
+            android:text="GO ORGANIC"
+
+            android:textColor="#D0313032"
+            android:textSize="28sp" />
+
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp">
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:layout_marginTop="40dp"
+            android:layout_centerInParent="true"
+            android:textColor="#C9302F2F"
+
+
+            android:text="The First Wealth is Health"
+            android:textSize="20dp"
+            android:fontFamily="@font/regular"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-  Emerson"
+            android:textSize="18sp"
+            android:fontFamily="@font/medium"
+            android:layout_alignParentRight="true"
+            android:paddingRight="20dp"
+            android:textColor="#9C1B1717"/>
+
+
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>
