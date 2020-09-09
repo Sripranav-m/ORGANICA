@@ -23,7 +23,7 @@ ORGANICA : ORGANIC PRODUCTS ECOMMERCE PLATFORM
     
 					PROJECT   OUTLINE :
 =========================================================================================================================================================================
-																		PROJECT:
+									PROJECT:
 
 
                                                 ---  LOGIN ---      
@@ -70,16 +70,16 @@ ORGANICA : ORGANIC PRODUCTS ECOMMERCE PLATFORM
 
 					-------------------------------------------------------------------------------------------------------------------------------
 
-															                    --- ADD ARTICLES
-                                  --- ARTICLES--- 
-                                                  --- SHOW ARTICLES
-					3)    SELLER HOME ---
-											            --- SELL ITEMS
+							--- ADD ARTICLES
+                                  	--- ARTICLES--- 
+                                                  	--- SHOW ARTICLES
+		3)    SELLER HOME ---
+					 --- SELL ITEMS
 
-											            --- HIS PRODUCTS THAT HE SOLD
+					--- HIS PRODUCTS THAT HE SOLD
 
-											            --- ARTICLES ABOUT ORGANIC PRODUCTS
+					--- ARTICLES ABOUT ORGANIC PRODUCTS
 
-											            --- BUYER DETAILS OF HIS PRODUCTS
+					--- BUYER DETAILS OF HIS PRODUCTS
 
 =========================================================================================================================================================================
