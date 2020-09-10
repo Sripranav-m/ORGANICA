@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.dashboard">
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_finall"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".splash_screen" />
+
+        <activity android:name=".MainActivity2" />
+        <activity android:name=".welcome_new" />
+        <activity android:name=".register_new" />
+        <activity android:name=".newlogin" />
+        <activity android:name=".ViewPagerActivity" />
+        <activity android:name=".SellerHomeActivity" />
+        <activity android:name=".Home1Activity" />
+        <activity android:name=".dizzy" />
+        <activity android:name=".articles_all" />
+        <activity android:name=".most_buyed" />
+        <activity android:name=".HelperClass.beverages" />
+        <activity android:name=".HelperClass.fruits" />
+        <activity android:name=".register" />
+        <activity android:name=".walkthrough" /> <!-- <uses-library -->
+        <!-- android:name="com.google.android.wearable" -->
+        <!-- android:required="true" /> -->
+        <!--
+               Set to true if your app is Standalone, that is, it does not require the handheld
+               app to run.
+        -->
+        <!-- <meta-data -->
+        <!-- android:name="com.google.android.wearable.standalone" -->
+        <!-- android:value="true" /> -->
+        <activity
+            android:name=".progress"
+            android:label="activity_main">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

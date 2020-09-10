@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".welcome"
+    android:background="@drawable/loginbg">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WELCOME"
+                android:textColor="#EAE9A6"
+                android:fontFamily="@font/bold"
+                android:textSize="70sp"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Have a good day!"
+                android:fontFamily="@font/regular"
+                android:layout_centerInParent="true"
+                android:textColor="#6680AC"
+
+                android:textSize="30dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <ImageView
+                android:layout_marginTop="13dp"
+                android:layout_width="40dp"
+                android:layout_marginRight="20dp"
+
+                android:layout_height="40dp"
+                android:layout_toLeftOf="@id/buyer_first"
+                android:src="@drawable/ic_right_arrow"/>
+
+            <Button
+                android:id="@+id/buyer_first"
+                android:layout_width="120dp"
+                android:layout_height="45dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/login_shape_change"
+                android:fontFamily="@font/medium"
+                android:gravity="center"
+
+                android:text="BUYER"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <ImageView
+                android:layout_marginTop="13dp"
+                android:layout_width="40dp"
+                android:layout_marginRight="20dp"
+
+                android:layout_height="40dp"
+                android:layout_toLeftOf="@id/seller_first"
+                android:src="@drawable/ic_right_arrow"/>
+            <Button
+                android:id="@+id/seller_first"
+                android:layout_width="120dp"
+                android:layout_height="45dp"
+                android:text="SELLER"
+                android:background="@drawable/login_shape_change"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+
+                android:gravity="center"
+                android:fontFamily="@font/medium"
+                android:layout_marginTop="20dp"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

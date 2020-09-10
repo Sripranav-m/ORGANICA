@@ -1,0 +1,304 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/slogan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/bold"
+                    android:text="GO-ORGANIC"
+                    android:textSize="18sp" />
+                <!--                <RelativeLayout-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="40dp"-->
+                <!--                    android:layout_below="@id/slogan"-->
+                <!--                    android:background="@color/white"-->
+                <!--                    android:layout_marginLeft="40dp"-->
+                <!--                    android:layout_marginRight="40dp"-->
+                <!--                    android:layout_marginTop="10dp"-->
+
+                <!--                    android:elevation="8dp">-->
+                <!--                    <TextView-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:hint="Search"-->
+                <!--                        android:fontFamily="@font/medium"-->
+                <!--                        android:layout_centerVertical="true"-->
+                <!--                        android:layout_marginLeft="15dp"/>-->
+                <!--                    <ImageView-->
+                <!--                        android:layout_width="30dp"-->
+                <!--                        android:layout_height="30dp"-->
+                <!--                        android:src="@drawable/ic_loupe"-->
+                <!--                        android:layout_alignParentRight="true"-->
+                <!--                        android:layout_centerVertical="true"-->
+                <!--                        android:layout_marginRight="15dp"/>-->
+                <!--                </RelativeLayout>-->
+
+            </RelativeLayout>
+
+            <!--            <RelativeLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content">-->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/card_1">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/ic_beer" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/text_beverages"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/regular"
+                        android:gravity="center_horizontal"
+                        android:text="Beverages"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/card_1">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/ic_fruits" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/text_fruits"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/regular"
+                        android:gravity="center_horizontal"
+                        android:text="Fruits"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/card_1">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/ic_harvest" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/text_vegetables"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/regular"
+                        android:gravity="center_horizontal"
+                        android:text="Vegetables"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/card_1">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/ic_snacks" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/text_snacks"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/regular"
+                        android:gravity="center_horizontal"
+                        android:text="Snacks"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/graylight">
+
+                <LinearLayout
+                    android:id="@+id/box1"
+                    android:layout_width="150dp"
+                    android:layout_height="250dp"
+                    android:layout_margin="10dp"
+                    android:background="#D8C48E"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:fontFamily="@font/bold"
+                        android:text="Importance of Organic Products"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="50dp"
+                        android:fontFamily="@font/regular"
+                        android:text="yes!"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/importance"
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp"
+                    android:layout_toRightOf="@+id/box1"
+                    android:background="@color/white" />
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bold"
+                        android:padding="5dp"
+                        android:text="Most Buyed"
+                        android:textAllCaps="true"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/view_all_buyed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/regular"
+                        android:text="View all" />
+
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+
+                    android:id="@+id/buyed"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bold"
+                        android:padding="5dp"
+                        android:text="Most Viewed Articles"
+                        android:textAllCaps="true"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/view_all_articles"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/regular"
+                        android:text="View all" />
+
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+
+                    android:id="@+id/articles"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
